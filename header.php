@@ -26,10 +26,10 @@
             <ul class="nav">
               <li class="scroll-to-section"><a href="index.php">Home</a></li>
               <li class="scroll-to-section"><a href="conferences.php">Conferences</a></li>
-              <li class="scroll-to-section"><a href="#services">Awards</a></li>
-              <li class="scroll-to-section"><a href="#portfolio">Seminars</a></li>
-              <li class="scroll-to-section"><a href="#blog">Articles</a></li> 
-              <li class="scroll-to-section"><a href="#contact">Our Team</a></li>
+              <li class="scroll-to-section"><a href="awards.php">Awards</a></li>
+              <li class="scroll-to-section"><a href="workshops.php">Workshops</a></li>
+              <li class="scroll-to-section"><a href="consultancy.php">Consultancy</a></li> 
+              <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
               <li class="scroll-to-section"><div class="main-red-button"><a href="#portfolio">Top Performer</a></div></li> 
               
             </ul>

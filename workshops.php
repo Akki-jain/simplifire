@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Simplifire | Conference/Seminars</title>
+    <title>Simplifire | Workshops</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
 <br><br><br><br><br><br><br>
 
 
-<form action="conferences.php" method="post" style="margin-left:75px;"> 
+<form action="workshops.php" method="post" style="margin-left:75px;"> 
     <input list="valueToSearch" name="valueToSearch" placeholder="Organised By" class="inputfield" style="border-radius:10px;">
             <datalist id="valueToSearch">
                 <option value=""></option>
@@ -73,7 +73,7 @@
                 $result1 = mysqli_query($con,$quer1);
                 while($field = mysqli_fetch_array($result1))
                 {
-                    if($field[0]=="rejection_reason")
+                    if($field[0]=="organized")
                     {
                         $val=$table[0];
             ?>
@@ -89,7 +89,7 @@
   <ul class="checkbox-dropdown-list">
     <li>
       <label>
-        <input type="checkbox" class = "selection"  name="selection[]" value="rejection_reason" />Rejection Reason </label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="organized" />Organized by</label>
     </li>
     <li>
       <label>
@@ -97,7 +97,11 @@
     </li>
     <li>
       <label>
-        <input type="checkbox" class = "selection"  name="selection[]" value="type" />Type</label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="start" />Start Date</label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="end" />End Date</label>
     </li>
     <li>
       <label>
@@ -105,19 +109,11 @@
     </li>
     <li>
       <label>
-        <input type="checkbox" class = "selection"  name="selection[]" value="start" />Start</label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="institute" />Institute</label>
     </li>
     <li>
       <label>
-        <input type="checkbox" class = "selection"  name="selection[]" value="end" />End</label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox"  class = "selection"  name="selection[]" value="place" />Place</label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" class = "selection"  name="selection[]" value="level" />Level</label>
+        <input type="checkbox"  class = "selection"  name="selection[]" value="duration" />Duration</label>
     </li>
     <li>
       <label>
@@ -125,19 +121,27 @@
     </li>
     <li>
       <label>
-        <input type="checkbox" class = "selection"  name="selection[]" value="organ_org" />Organising Organisation</label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="type" />Type</label>
     </li>
+    <li>
+      <label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="level" />Level</label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="proof" />Proof</label>
+    </li>
+    
   </ul>
 </div>
 <input type="submit" name="search" value="Search" class="button1" style="margin-left:30px;"><br><br><br>
 
-                            
 <center>
-<table cellspacing="10px" cellpadding="0px" style=" margin-left:-40px; margin-right:40px;">
+<table style=" margin-left:-40px; margin-right:40px;">
 <?php
 
-if(isset($_POST['search']))
-{
+  if(isset($_POST['search']))
+  {
       $arr=[];
       $count=0;
       $val="";
@@ -146,6 +150,7 @@ if(isset($_POST['search']))
       $valueToSearch2 = $_POST['valueToSearch2'];
       $valueToSearch3 = $_POST['end'];
       $table = $_POST['table'];
+
       if(!empty($_POST['selection']))
       {
           foreach($_POST['selection'] as $checked)
@@ -227,7 +232,7 @@ if(isset($_POST['search']))
           }
           elseif(($valueToSearch1=="")AND($valueToSearch2=="")AND($valueToSearch3==""))
           {
-              $query = "SELECT * FROM $table WHERE organized,= '$valueToSearch'";
+              $query = "SELECT * FROM $table WHERE organized= '$valueToSearch'";
               $search_result = filterTable($query);
           }
           elseif(($valueToSearch=="")AND($valueToSearch2=="")AND($valueToSearch3==""))
@@ -287,18 +292,20 @@ if(isset($_POST['search']))
         if(count($arr)==0)
         {
     ?>
-  <tr>
-      <th style="width: 150px; text-align:center;font-size:14px; border-radius: 30px;box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2);" >Faculty Name</th>
-    <th style="width: 180px; font-size:14px; text-align:center;border-radius: 30px;box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2);" >Rejection Reason</th>
+  <tr style="">
+    <th style="width: 130px;font-size:14px; text-align:center;border-radius: 30px;box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2);" >Organized By</th>
     <th class="datalooks" style="width: 90px; text-align:center;" >Name</th>
-    <th class="datalooks" style="width: 130px; text-align:center;" >Type</th>
-    <th class="datalooks" style="width: 130px; text-align:center;" >Role</th>
-    <th class="datalooks" style="width: 120px; text-align:center;" >Start</th>
+    <th class="datalooks" style="width: 130px; text-align:center;" >Start</th>
     <th class="datalooks" style="width: 130px; text-align:center;" >End</th>
-    <th class="datalooks" style="width: 130px; text-align:center;" >Place</th>
-    <th class="datalooks" style="width: 80px; text-align:center;" >Level</th>
-    <th class="datalooks" style="width: 130px; text-align:center;" >URL</th>
-    <th  style="width: 200px; text-align:center;font-size:14px; border-radius: 30px;box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2);" >Organising Organisation</th>
+    <th class="datalooks" style="width: 90px; text-align:center;" >Role</th>
+    <th class="datalooks" style="width: 130px; text-align:center;" >Institute</th>
+    <th class="datalooks" style="width: 130px; text-align:center;" >Duration</th>
+    <th class="datalooks" style="width: 80px; text-align:center;" >URL</th>
+    <th class="datalooks" style="width: 130px; text-align:center;" >Type</th>
+    <th class="datalooks" style="width: 130px; text-align:center;" >Level</th>
+    <!-- <th  style="width: 130px; text-align:center;" class="datalooks">Proof</th> -->
+    <!-- <th  style="width: 130px; text-align:center;" class="datalooks">Upload</th> -->
+
   </tr>
     <?php
         }
@@ -322,26 +329,16 @@ if(isset($_POST['search']))
   </tr>
 
 <!-- populate table from mysql database -->
-
-
-
 <?php 
   if(isset($_POST['search']))
   { 
   while($row = mysqli_fetch_array($search_result)):?>
   <tr class="datalooks">
-
-<?php
-    if(isset($row['teacher']))
-        {?>
-    <td><?php echo $row['teacher']??''; ?></td>
-    <?php
-}?>
       
       <?php
-      if(isset($row['rejection_reason']))
+      if(isset($row['organized']))
           {?>
-      <td><?php echo $row['rejection_reason']??''; ?></td>
+      <td><?php echo $row['organized']??''; ?></td>
       <?php
   }?>
 
@@ -351,20 +348,7 @@ if(isset($_POST['search']))
       <td><?php echo $row['name']??''; ?></td>
       <?php
   }?>
-  
-<?php
-        if(isset($row['type']))
-            {?>
-        <td><?php echo $row['type']??''; ?></td>
-        <?php
-    }?>
 
-<?php
-if(isset($row['role']))
-    {?>
-<td><?php echo $row['role']??''; ?></td>
-<?php
-}?>
       <?php
       if(isset($row['start']))
           {?>
@@ -379,20 +363,26 @@ if(isset($row['role']))
       <?php
   }?>
 
-
       <?php
-      if(isset($row['place']))
+      if(isset($row['role']))
           {?>
-      <td><?php echo $row['place']??''; ?></td>
+      <td><?php echo $row['role']??''; ?></td>
       <?php
   }?>
 
-<?php
-if(isset($row['level']))
-    {?>
-<td><?php echo $row['level']??''; ?></td>
-<?php
-}?>
+      <?php
+      if(isset($row['institute']))
+          {?>
+      <td><?php echo $row['institute']??''; ?></td>
+      <?php
+  }?>
+
+      <?php
+      if(isset($row['duration']))
+          {?>
+      <td><?php echo $row['duration']??''; ?></td>
+      <?php
+  }?>
 
 
       <?php
@@ -408,14 +398,20 @@ if(isset($row['level']))
   }
   ?>
 
-<?php
-    if(isset($row['organizing_org']))
-        {?>
-    <td><?php echo $row['organizing_org']??''; ?></td>
-    <?php
-}?>
+      <?php
+      if(isset($row['type']))
+          {?>
+      <td><?php echo $row['type']??''; ?></td>
+      <?php
+  }?>
 
-
+      <?php
+      if(isset($row['level']))
+          {?>
+      <td><?php echo $row['level']??''; ?></td>
+      <?php
+  }?>
+  </tr>
   <?php endwhile;}?>
 
 
@@ -437,10 +433,12 @@ if(isset($row['level']))
   <div class="form-popup" id="myForm">
     <form method="POST" action="generate_pdf.php" class="form-container">
         <br>
-      <h5 style="color:#000000;">Please Enter your Name</h5>
+      <h5 style="color:#000000;">Please Enter:</h5>
         <br>
       <!-- <label for="email"><b style="color:#000000;">Highlights</b></label> -->
-      <input type="text" placeholder="E.g. Dr. Arokia Paul" name="highlights" required>
+      <input type="text" placeholder="Your Name" name="highlights1" required>
+      <input type="text" placeholder="Highlight 1" name="highlights2" required>
+      <input type="text" placeholder="Highlight 2" name="highlights3" required>
       <input type="hidden" name="hidden1" value="<?php echo $table??'';?>" /> 
       <input type="hidden" name="hidden3" value="<?php echo $val??'';?>" />
       <?php

@@ -885,18 +885,19 @@ Banner Style
   margin: 20px 0px;
 }
 
-.main-banner .left-content form {
+.main-banner .left-content form#sample_form {
   margin-top: 30px;
-  width: 470px;
-  height: 66px;
-  position: relative;
+  width: 350px;
+  background-color: #03a4ed;
+  border-radius: 40px;
+  border: none;
+  outline: none;
 }
 
 .main-banner .left-content form button {
-  position: absolute;
+  /* position: absolute; */
   right: 10px;
   top: 10px;
-  display: inline-block;
   background-color: #fff;
   font-size: 15px;
   font-weight: 500;
@@ -907,20 +908,25 @@ Banner Style
   letter-spacing: 0.25px;
   outline: none;
   border: none;
+  margin-bottom:20px;
+  margin-left:75px;
+  margin-top:20px;
 }
 
 .main-banner .left-content form input {
-  width: 470px;
-  height: 66px;
+  width: 350px;
+  height: 45px;
+  display: inline-block;
   background-color: #03a4ed;
-  border-radius: 33px;
-  border: none;
-  outline: none;
   padding: 0px 25px;
   color: #fff;
   letter-spacing: 0.25px;
   font-size: 15px;
   font-weight: 300;
+  border-radius: 40px;
+  border: none;
+  outline: none;
+
 }
 
 .main-banner .left-content form input::placeholder {
@@ -1057,18 +1063,18 @@ Services Style
 }
 
 .our-services .first-bar .filled-bar {
-  width: 94%;
+  width: 45%;
 }
 
 .our-services .second-bar .filled-bar {
-  width: 83%;
+  width: 22%;
 }
 
 .our-services .third-bar .filled-bar {
-  width: 90%;
+  width: 20%;
 }
 .our-services .fourth-bar .filled-bar {
-  width: 90%;
+  width: 13%;
 }
 
 /* 
@@ -1639,7 +1645,7 @@ responsive
   right: -1px; /* align the dropdown to the right */
   opacity: 0; /* hide the dropdown */
   transition: opacity 0.4s ease-in-out;
-  height: 120px;
+  height: 250px;
   overflow: scroll;
   overflow-x: hidden;
   pointer-events: none; /* avoid mouse click events inside the dropdown */
@@ -1665,38 +1671,24 @@ responsive
 
 .button1
   {
+    background-color:#03a4ed;
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2);
+  }
+  
+  .button1:hover {
       background-color:#fe3f40;
-      border: none;
-      color: white;
-      padding: 8px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      border-radius: 20px;
-      transition-duration: 0.4s;
-      box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2);
-    }
-    
-    .button1:hover {
-      background-color:#03a4ed;
       color: #ffffff;
       box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     }
-    
-th{
-      border-radius: 20px;
-      box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2);
-      margin:20px;
-      
-}
-
-.datalooks{
-  font-size:14px;
-  margin:6px;
-  display:inline-block;
-}
-
 
 .form-popup {
   display: none;
@@ -1717,10 +1709,12 @@ th{
 /* Full-width input fields */
 .form-container input[type=text], .form-container input[type=password] {
   width: 100%;
-  padding: 15px;
+  padding: 8px;
   margin: 5px 0 22px 0;
   border: none;
+  border-radius: 15px;
   background: #f1f1f1;
+  font-size: 14px;
 }
 
 /* When the inputs get focus, do something */
@@ -1731,22 +1725,82 @@ th{
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-  background-color: #04AA6D;
+  background-color: #03a4ed;
   color: white;
-  padding: 16px 20px;
+  padding: 6px 8px;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 80%;
   margin-bottom:10px;
   opacity: 0.8;
+  border-radius: 15px;
 }
 
 /* Add a red background color to the cancel button */
 .form-container .cancel {
-  background-color: red;
+  background-color: #fe3f40;
 }
 
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+
+
+/* Custom file button */
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: 'Click Here to Upload';
+  display: inline-block;
+  border:none;
+  padding: 5px 0px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  margin-right:-60px;
+  /* text-shadow: 1px 1px #fff; */
+  font-size: 14px;
+}
+.custom-file-input:hover::before {
+  color: black;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+td{
+  /* border-bottom: 1px solid #ddd; */
+  /* border-top: 1px solid #ddd; */
+  /* border: 2px solid white; */
+  border-radius:20px;
+  /* border-collapse: collapse; */
+}
+td{
+  text-align: center;
+  font-size:14px;
+  padding:13px;
+}
+
+th:hover{
+  background-color:#03a4ed;
+  color:black;
+}
+td:hover {
+  background-color:#fe3f40;
+  color:black;
+}
+    
+th.datalooks{
+  text-align:center;
+  font-size:14px;
+  padding:10px 10px;
+  margin:6px;
+  border-radius: 30px;
+  box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2);
+  padding-left:30px;
+  padding-right:30px;
+}
+

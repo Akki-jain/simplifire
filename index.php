@@ -1,3 +1,4 @@
+<?php include 'connect.php'?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +22,8 @@
     <link rel="stylesheet" href="assets/css/animated.css">
     <link rel="stylesheet" href="assets/css/owl.css">
 
+    
+
   </head>
 
 <body>
@@ -35,15 +38,13 @@
             <div class="col-lg-6 align-self-center">
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <h6>Welcome to Simplifire</h6>
-                <h2>We Make <em>manual work</em> &amp; <span>easy</span> and faster.</h2>
-                <p>We perform sorting and analysing of faculties and determine the top perfromer of the department.</p>
-                <form id="search" action="#" method="GET">
-                  <fieldset>
-                    <input type="address" name="address" class="email" placeholder="Your website URL..." autocomplete="on" required>
-                  </fieldset>
-                  <fieldset>
-                    <button type="submit" class="main-button">Analyze Site</button>
-                  </fieldset>
+                <h2>We Make <em>manual work</em> <span>easy</span> and faster.</h2>
+                <p>We perform Sorting and Analysis of faculty members and determine the top performer of the department.</p>
+                <form id="sample_form" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                <input type="file" name="file" class="custom-file-input" id="file" placeholder="Your CSV file..." accept=".csv" style = "display:inline-block; margin-top:20px;" autocomplete="on" required >
+                    <input type="text" id="type" placeholder="Type of file..." style = "display:inline-block;">
+                    <input class="choose" type="hidden" name="hidden_field" value="1" />
+                    <button type="submit" class="main-button" name="import" id="import" value="Import">Upload CSV File</button>
                 </form>
               </div>
             </div>
@@ -58,12 +59,18 @@
     </div>
   </div>
 
+<!-- Script to send data to other files -->
+
+
+
+
+
   <div id="about" class="about-us section">
     <div class="container">
       <div class="row">
         <div class="col-lg-4">
           <div class="left-image wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-            <img src="assets/images/about-left-image.png" alt="person graphic">
+            <img src="assets/images/winner.png" alt="person graphic">
           </div>
         </div>
         <div class="col-lg-8 align-self-center">
@@ -108,7 +115,7 @@
                     <img src="assets/images/service-icon-04.png" alt="">
                   </div>
                   <div class="right-text">
-                    <h4>Top Performer</h4>
+                    <h4>Top Performer Evaulation</h4>
                     <p>Evaluating the top performer of the department.</p>
                   </div>
                 </div>
@@ -125,19 +132,20 @@
       <div class="row">
         <div class="col-lg-6 align-self-center  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
           <div class="left-image">
-            <img src="assets/images/services-left-image.png" alt="">
+            <img src="assets/images/work.svg" alt="">
           </div>
         </div>
         <div class="col-lg-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
           <div class="section-heading">
             <h2>How<em> does </em>everything<span> work </span>?</h2>
-            <p>We convert the data through PHP and store it in AWS servers. The Python performs verious functions in order to gain the top performer.</p>
+            <!-- <p>We convert the data through PHP and store it in AWS servers. The Python performs verious functions in order to gain the top performer.</p> -->
+            <p>Division of Total Activity into Conferences, Awards, Workshops, Consultancy in relation to the faculty members.</p>
           </div>
           <div class="row">
             <div class="col-lg-12">
               <div class="first-bar progress-skill-bar">
                 <h4>Conferences</h4>
-                <span>94%</span>
+                <span>45%</span>
                 <div class="filled-bar"></div>
                 <div class="full-bar"></div>
               </div>
@@ -145,23 +153,23 @@
             <div class="col-lg-12">
               <div class="second-bar progress-skill-bar">
                 <h4>Awards</h4>
-                <span>83%</span>
+                <span>22%</span>
                 <div class="filled-bar"></div>
                 <div class="full-bar"></div>
               </div>
             </div>
             <div class="col-lg-12">
               <div class="third-bar progress-skill-bar">
-                <h4>Seminars</h4>
-                <span>90%</span>
+                <h4>Workshops</h4>
+                <span>20%</span>
                 <div class="filled-bar"></div>
                 <div class="full-bar"></div>
               </div>
             </div>
             <div class="col-lg-12">
               <div class="fourth-bar progress-skill-bar">
-                <h4>Articles</h4>
-                <span>95%</span>
+                <h4>Comsultancy</h4>
+                <span>13%</span>
                 <div class="filled-bar"></div>
                 <div class="full-bar"></div>
               </div>
@@ -186,11 +194,11 @@
           <a href="#">
             <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
               <div class="hidden-content">
-                <h4>SEO Analysis</h4>
-                <p>Lorem ipsum dolor sit ameti ctetur aoi adipiscing eto.</p>
+                <h4>Dr. Arokia Paul Rajan</h4>
+                <p>Cloud Computing Expert</p>
               </div>
               <div class="showed-content">
-                <img src="assets/images/portfolio-image.png" alt="">
+                <img src="assets/images/firstprize.png" alt="">
               </div>
             </div>
           </a>
@@ -199,11 +207,11 @@
           <a href="#">
             <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.4s">
               <div class="hidden-content">
-                <h4>Website Reporting</h4>
-                <p>Lorem ipsum dolor sit ameti ctetur aoi adipiscing eto.</p>
+                <h4>Dr. Smitha Vinod</h4>
+                <p>Database and SQL Expert</p>
               </div>
               <div class="showed-content">
-                <img src="assets/images/portfolio-image.png" alt="">
+                <img src="assets/images/secondprize.png" alt="">
               </div>
             </div>
           </a>
@@ -212,11 +220,11 @@
           <a href="#">
             <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.5s">
               <div class="hidden-content">
-                <h4>Performance Tests</h4>
-                <p>Lorem ipsum dolor sit ameti ctetur aoi adipiscing eto.</p>
+                <h4>Dr. Debabrata Samanta</h4>
+                <p>Patent and Copywrite Expert</p>
               </div>
               <div class="showed-content">
-                <img src="assets/images/portfolio-image.png" alt="">
+                <img src="assets/images/thirdprize.png" alt="">
               </div>
             </div>
           </a>
@@ -225,11 +233,11 @@
           <a href="#">
             <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.6s">
               <div class="hidden-content">
-                <h4>Data Analysis</h4>
-                <p>Lorem ipsum dolor sit ameti ctetur aoi adipiscing eto.</p>
+                <h4>Dr. Parth Pathak</h4>
+                <p>PHP and Backend Expert</p>
               </div>
               <div class="showed-content">
-                <img src="assets/images/portfolio-image.png" alt="">
+                <img src="assets/images/fourthprize.png" alt="">
               </div>
             </div>
           </a>
@@ -245,24 +253,24 @@
       <div class="row">
         <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
           <div class="section-heading">
-            <h2>Feel Free To Send Us a Message About Your Website Needs</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doer ket eismod tempor incididunt ut labore et dolores</p>
+            <h2>Feel Free To Send Us any Suggestion or Message.</h2>
+            <p>Our team will contact you as soon as we receive your message.</p>
             <div class="phone-info">
-              <h4>For any enquiry, Call Us: <span><i class="fa fa-phone"></i> <a href="#">010-020-0340</a></span></h4>
+              <h4>For any enquiry, Call Us: <span><i class="fa fa-phone"></i> <a href="9407080580">9407080580</a></span></h4>
             </div>
           </div>
         </div>
         <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <form id="contact" action="" method="post">
+          <form id="contact" action="contact.php" method="post">
             <div class="row">
               <div class="col-lg-6">
                 <fieldset>
-                  <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
+                  <input type="name" name="name" id="name" placeholder="First Name" autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-6">
                 <fieldset>
-                  <input type="surname" name="surname" id="surname" placeholder="Surname" autocomplete="on" required>
+                  <input type="surname" name="lname" id="lname" placeholder="Last Name" autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-12">
@@ -308,6 +316,77 @@
   <script src="assets/js/animation.js"></script>
   <script src="assets/js/imagesloaded.js"></script>
   <script src="assets/js/templatemo-custom.js"></script>
+  <script>
+
+ $(document).ready(function()
+ {
+    
+   $('#sample_form').on('submit', function(event)
+   {
+    var type = document.getElementById("type").value;
+    if(type=="award")
+    {
+        alert(type+" Uploaded Successfully");
+        $('#message').html('');
+        event.preventDefault();
+        $.ajax({
+          url:"awardimport.php",
+          method:"POST",
+          data: new FormData(this),
+          dataType:"json",
+          contentType:false,
+          cache:false,
+          processData:false,
+          success:function(data)
+          {
+            $('#message').html('<div class="alert alert-success">'+data.success+'</div>');
+            $('#sample_form')[0].reset();
+        }
+       })
+    }
+    else if(type=="seminars")
+    {
+        alert(type+" Uploaded Successfully");
+        $('#message').html('');
+        event.preventDefault();
+        $.ajax({
+          url:"seminarimport.php",
+          method:"POST",
+          data: new FormData(this),
+          dataType:"json",
+          contentType:false,
+          cache:false,
+          processData:false,
+          success:function(data)
+          {
+            $('#message').html('<div class="alert alert-success">'+data.success+'</div>');
+            $('#sample_form')[0].reset();
+          }
+        })
+      }
+      else
+      {
+        alert(type+" Uploaded Successfully");
+        $('#message').html('');
+        event.preventDefault();
+        $.ajax({
+        url:"import.php",
+        method:"POST",
+        data: new FormData(this),
+        dataType:"json",
+        contentType:false,
+        cache:false,
+        processData:false,
+        success:function(data)
+        {
+            $('#message').html('<div class="alert alert-success">'+data.success+'</div>');
+            $('#sample_form')[0].reset();
+        }
+       })
+    }
+  });
+ });
+</script>
 
 </body>
 </html>
