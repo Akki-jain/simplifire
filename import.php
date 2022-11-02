@@ -3,13 +3,8 @@
 if(!empty($_FILES['file']['name']))
 {
        include 'connect.php';
+       include 'connectdisplay.php';
 
-       $name=$_FILES["file"]["name"];
-       $filename_without_ext = substr($name, 0, strrpos($name, ".")); 
-
- $connect = new PDO("mysql:host=localhost;dbname=testing;", "root", "", array(
-        PDO::MYSQL_ATTR_LOCAL_INFILE => true,
-    ));
 
  $total_row = count(file($_FILES['file']['tmp_name']));
 
