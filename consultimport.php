@@ -28,7 +28,7 @@ if(!empty($_FILES['file']['name']))
  LINES TERMINATED BY "\r\n" 
  IGNORE 1 LINES 
  (@column1,@column2,@column3,@column4,@column5,@column6,@column7,@column8,@column9,@column10,@column11) 
- SET organized = @column1, name = @column2,  start = @column3, end = @column4, role = @column5, institute = @column6, duration = @column7, url = @column8, type1 = @column9, level = @column10, proof = "none"
+ SET approver_com = @column1, topic = @column2,  start = @column3, end = @column4, consultancy_doc = @column5, type = @column6, consultancy_fee = @column7, fee_deducted = @column8, expenditure = @column9, consultancy_faculty = @column10, associatiated_with = @column11, url = @column12, , nature = @column13
  ';
 
  $statement = $connect->prepare($query_1);

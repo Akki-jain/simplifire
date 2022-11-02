@@ -340,13 +340,33 @@
         }
        })
     }
-    else if(type=="seminars")
+    else if(type=="conferences")
     {
         alert(type+" Uploaded Successfully");
         $('#message').html('');
         event.preventDefault();
         $.ajax({
           url:"seminarimport.php",
+          method:"POST",
+          data: new FormData(this),
+          dataType:"json",
+          contentType:false,
+          cache:false,
+          processData:false,
+          success:function(data)
+          {
+            $('#message').html('<div class="alert alert-success">'+data.success+'</div>');
+            $('#sample_form')[0].reset();
+          }
+        })
+      }
+      else if(type=="consultancy")
+    {
+        alert(type+" Uploaded Successfully");
+        $('#message').html('');
+        event.preventDefault();
+        $.ajax({
+          url:"consultimport.php",
           method:"POST",
           data: new FormData(this),
           dataType:"json",

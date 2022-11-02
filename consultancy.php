@@ -73,7 +73,7 @@
                 $result1 = mysqli_query($con,$quer1);
                 while($field = mysqli_fetch_array($result1))
                 {
-                    if($field[0]=="organized")
+                    if($field[0]=="approver_com")
                     {
                         $val=$table[0];
             ?>
