@@ -140,7 +140,7 @@
 <input type="submit" name="search" value="Search" class="button1" style="margin-left:30px;"><br><br><br>
 
                             
-                            
+<center>              
 <table style=" margin-left:-40px; margin-right:40px;">
 <?php
 
@@ -296,13 +296,13 @@ if(isset($_POST['search']))
         {
     ?>
   <tr>
-    <th  style="width: 180px; text-align:center;" class="datalooks">Approver Comment</th>
+    <th  style="width: 230px; text-align:center;font-size:14px; border-radius: 30px;box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2);">Approver Comment</th>
     <th  style="width: 170px; text-align:center;" class="datalooks">Topic</th>
     <th  style="width: 90px; text-align:center;" class="datalooks">Start</th>
     <th  style="width: 90px; text-align:center;" class="datalooks">End</th>
     <!-- <th  style="width: 130px; text-align:center;" class="datalooks">Consultacy Document</th> -->
     <th  style="width: 120px; text-align:center;" class="datalooks">Type</th>
-    <th  style="width: 160px; text-align:center;" class="datalooks">Consultancy Fee</th>
+    <th  style="width: 190px; text-align:center;font-size:14px; border-radius: 30px;box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2);">Consultancy Fee</th>
     <!-- <th  style="width: 100px; text-align:center;" class="datalooks">Fee Deducted</th> -->
     <!-- <th  style="width: 130px; text-align:center;" class="datalooks">Expenditure</th> -->
     <th  style="width: 120px; text-align:center;" class="datalooks">Faculty</th>
@@ -436,6 +436,7 @@ if(isset($_POST['search']))
 
 
 </table>
+</center>
 <br><br><br><br><br><br>
 </form>
 
@@ -489,23 +490,8 @@ document.getElementById("myForm").style.display = "none";
 }
 </script>
 
+<?php include 'footer.php'?>
 
-
-
-
-
-
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>© Copyright 2022 Simplifire. All Rights Reserved. 
-          
-          <br>Akshat | Mayank | Mradul | Parth</a></p>
-        </div>
-      </div>
-    </div>
-  </footer>
   <!-- Scripts -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

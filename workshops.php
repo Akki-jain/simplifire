@@ -473,22 +473,7 @@ document.getElementById("myForm").style.display = "none";
 </script>
 
 
-
-
-
-
-
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>© Copyright 2022 Simplifire. All Rights Reserved. 
-          
-          <br>Akshat | Mayank | Mradul | Parth</a></p>
-        </div>
-      </div>
-    </div>
-  </footer>
+<?php include 'footer.php'?>
   <!-- Scripts -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

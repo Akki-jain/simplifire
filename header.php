@@ -29,8 +29,8 @@
               <li class="scroll-to-section"><a href="awards.php">Awards</a></li>
               <li class="scroll-to-section"><a href="workshops.php">Workshops</a></li>
               <li class="scroll-to-section"><a href="consultancy.php">Consultancy</a></li> 
-              <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
-              <li class="scroll-to-section"><div class="main-red-button"><a href="#portfolio">Top Performer</a></div></li> 
+              <li class="scroll-to-section"><a href="index.php#contact">Contact Us</a></li>
+              <li class="scroll-to-section"><div class="main-red-button"><a href="index.php#portfolio">Top Performer</a></div></li> 
               
             </ul>
             <a class='menu-trigger'>

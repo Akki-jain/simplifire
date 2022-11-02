@@ -298,7 +298,7 @@ if(isset($_POST['search']))
     <th class="datalooks" style="width: 130px; text-align:center;" >Place</th>
     <th class="datalooks" style="width: 80px; text-align:center;" >Level</th>
     <th class="datalooks" style="width: 130px; text-align:center;" >URL</th>
-    <th  style="width: 200px; text-align:center;font-size:14px; border-radius: 30px;box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2);" >Organising Organisation</th>
+    <th  style="width: 220px; text-align:center;font-size:14px; border-radius: 30px;box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2);" >Organising Organisation</th>
   </tr>
     <?php
         }
@@ -475,22 +475,7 @@ document.getElementById("myForm").style.display = "none";
 </script>
 
 
-
-
-
-
-
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>© Copyright 2022 Simplifire. All Rights Reserved. 
-          
-          <br>Akshat | Mayank | Mradul | Parth</a></p>
-        </div>
-      </div>
-    </div>
-  </footer>
+<?php include 'footer.php'?>
   <!-- Scripts -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

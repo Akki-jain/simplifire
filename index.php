@@ -168,7 +168,7 @@
             </div>
             <div class="col-lg-12">
               <div class="fourth-bar progress-skill-bar">
-                <h4>Comsultancy</h4>
+                <h4>Consultancy</h4>
                 <span>13%</span>
                 <div class="filled-bar"></div>
                 <div class="full-bar"></div>
@@ -199,6 +199,8 @@
               </div>
               <div class="showed-content">
                 <img src="assets/images/firstprize.png" alt="">
+                <p>First Position</p>
+
               </div>
             </div>
           </a>
@@ -212,6 +214,7 @@
               </div>
               <div class="showed-content">
                 <img src="assets/images/secondprize.png" alt="">
+                <p>Second Position</p>
               </div>
             </div>
           </a>
@@ -225,6 +228,7 @@
               </div>
               <div class="showed-content">
                 <img src="assets/images/thirdprize.png" alt="">
+                <p>Third Position</p>
               </div>
             </div>
           </a>
@@ -235,9 +239,11 @@
               <div class="hidden-content">
                 <h4>Dr. Parth Pathak</h4>
                 <p>PHP and Backend Expert</p>
+
               </div>
               <div class="showed-content">
                 <img src="assets/images/fourthprize.png" alt="">
+                <p>Fourth Position</p>
               </div>
             </div>
           </a>
@@ -298,17 +304,7 @@
     </div>
   </div>
 
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>© Copyright 2022 Simplifire. All Rights Reserved. 
-          
-          <br>Akshat | Mayank | Mradul | Parth</a></p>
-        </div>
-      </div>
-    </div>
-  </footer>
+ <?php include 'footer.php'?>
   <!-- Scripts -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

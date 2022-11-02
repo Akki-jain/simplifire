@@ -286,7 +286,7 @@ if(isset($_POST['search']))
     ?>
   <tr>
       <th class="datalooks" style="width: 200px; text-align:center;">Faculty Name</th>
-    <th class="datalooks" style="width: 180px; text-align:center;">Approver Comment</th>
+    <th style="width: 190px; text-align:center;font-size:14px; border-radius: 30px;box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2);">Approver Comment</th>
     <th class="datalooks" style="width: 110px; text-align:center;">Name</th>
     <th class="datalooks" style="width: 180px; text-align:center;">Description</th>
     <th class="datalooks" style="width: 130px; text-align:center;">URL</th>
@@ -294,7 +294,7 @@ if(isset($_POST['search']))
     <th class="datalooks" style="width: 150px; text-align:center;">Category</th>
     <th class="datalooks" style="width: 130px; text-align:center;">Place</th>
     <th class="datalooks" style="width: 120px; text-align:center;">Date</th>
-    <th class="datalooks" style="width: 200px; text-align:center;">Awarding Organisation</th>
+    <th style="width: 220px; text-align:center;font-size:14px; border-radius: 30px;box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2);">Awarding Organisation</th>
   </tr>
     <?php
         }
@@ -456,21 +456,7 @@ document.getElementById("myForm").style.display = "none";
 
 
 
-
-
-
-
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>© Copyright 2022 Simplifire. All Rights Reserved. 
-          
-          <br>Akshat | Mayank | Mradul | Parth</a></p>
-        </div>
-      </div>
-    </div>
-  </footer>
+<?php include 'footer.php'?>
   <!-- Scripts -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
