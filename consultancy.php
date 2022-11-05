@@ -87,6 +87,10 @@
 <div class="checkbox-dropdown" style="margin-left:10px;">
   What columns do you want to see?
   <ul class="checkbox-dropdown-list">
+  <li>
+      <label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="approver_com" />Approver Comment</label>
+    </li>
     <li>
       <label>
         <input type="checkbox" class = "selection"  name="selection[]" value="topic" />Topic</label>
@@ -340,16 +344,16 @@ if(isset($_POST['search']))
   <tr class="datalooks">
       
       <?php
-      if(isset($row['organized']))
+      if(isset($row['approver_com']))
           {?>
-      <td><?php echo $row['organized']??''; ?></td>
+      <td><?php echo $row['approver_com']??''; ?></td>
       <?php
   }?>
 
       <?php
-      if(isset($row['name']))
+      if(isset($row['topic']))
           {?>
-      <td><?php echo $row['name']??''; ?></td>
+      <td><?php echo $row['topic']??''; ?></td>
       <?php
   }?>
 
@@ -367,24 +371,31 @@ if(isset($_POST['search']))
       <?php
   }?>
 
+
       <?php
-      if(isset($row['role']))
+      if(isset($row['type']))
           {?>
-      <td><?php echo $row['role']??''; ?></td>
+      <td><?php echo $row['type']??''; ?></td>
       <?php
   }?>
 
       <?php
-      if(isset($row['institute']))
+      if(isset($row['consultancy_fee']))
           {?>
-      <td><?php echo $row['institute']??''; ?></td>
+      <td><?php echo $row['consultancy_fee']??''; ?></td>
       <?php
   }?>
 
-      <?php
-      if(isset($row['duration']))
+  <?php
+      if(isset($row['consultancy_faculty']))
           {?>
-      <td><?php echo $row['duration']??''; ?></td>
+      <td><?php echo $row['consultancy_faculty']??''; ?></td>
+      <?php
+  }?>
+    <?php
+      if(isset($row['associated_with']))
+          {?>
+      <td><?php echo $row['associated_with']??''; ?></td>
       <?php
   }?>
 
@@ -403,34 +414,12 @@ if(isset($_POST['search']))
   ?>
 
       <?php
-      if(isset($row['type']))
+      if(isset($row['nature']))
           {?>
-      <td><?php echo $row['type']??''; ?></td>
+      <td><?php echo $row['nature']??''; ?></td>
       <?php
   }?>
 
-      <?php
-      if(isset($row['level']))
-          {?>
-      <td><?php echo $row['level']??''; ?></td>
-      <?php
-  }?>
-
-      <?php
-      if(isset($row['proof']))
-          {?>
-      <td><a href="showpdf.php?state=<?php echo $row['proof']; ?>"><?php echo $row['proof']; ?></a></td>
-      <?php
-  }?>
-
-  <?php
-      if(isset($row['proof']))
-          {?>
-  <td ><div class="box1" >
-          <button class="upload-button"><a href="#divOne" style="text-decoration: none;">UPLOAD</a></button>
-      </div></td>
-      <?php
-  }?>
   </tr>
   <?php endwhile;}?>
 
