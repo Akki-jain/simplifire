@@ -10,13 +10,35 @@ if(!empty($_FILES['file']['name']))
 
  $file_location = str_replace("\\", "/", $_FILES['file']['tmp_name']);
 
- //$query_5='truncate table customer_table';
- //$statement = $connect->prepare($query_5);
- //$statement->execute();
+ $arr=array();
+ $count=0;
+ $sql3="show tables";
+ $result = mysqli_query($con,$sql3);
+ while($table = mysqli_fetch_array($result))
+ {
+ 	$arr[$count]=$table[0];
+ 	$count=$count+1;
+ }
 
- $sql2='drop table '.$filename_without_ext.'';
- $statement1 = $connect->prepare($sql2);
- $statement1->execute();
+ $count1=0;
+	 while($count1<=$count)
+	 {
+	 	if ($arr[$count1]==$filename_without_ext) 
+	 	{
+	 		$sql2='drop table '.$filename_without_ext.'';
+	 		$statement1 = $connect->prepare($sql2);
+	 		$statement1->execute();
+	 		break;
+	 	}
+	 	else
+	 	{
+	 		$count1=$count1+1;
+	 	}
+	 }
+
+ // $sql2='drop table '.$filename_without_ext.'';
+ // $statement1 = $connect->prepare($sql2);
+ // $statement1->execute();
 
  $sql1='create table '.$filename_without_ext.' as select * from test1';
  $statement1 = $connect->prepare($sql1);
@@ -28,8 +50,8 @@ if(!empty($_FILES['file']['name']))
  FIELDS TERMINATED BY "," 
  LINES TERMINATED BY "\r\n" 
  IGNORE 1 LINES 
- (@column1,@column2,@column3,@column4,@column5,@column6,@column7,@column8,@column9,@column10,@column11) 
- SET organized = @column1, name = @column2,  start = @column3, end = @column4, role = @column5, institute = @column6, duration = @column7, url = @column8, type = @column9, level = @column10, proof = "none", teacher = @column11
+ (@column1,@column2,@column3,@column4,@column5,@column6,@column7,@column8,@column9,@column10,@column11,@column12) 
+ SET organized = @column1, name = @column2,  start = @column3, end = @column4, role = @column5, institute = @column6, duration = @column7, url = @column8, type = @column9, level = @column10, proof = @column11, teacher = @column12
  ';
 
  $statement = $connect->prepare($query_1);
