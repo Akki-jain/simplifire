@@ -1,4 +1,72 @@
 <?php include 'connect.php'?>
+
+<?php
+	$arr=array();
+	$count=0;
+	$query=mysqli_query($con, "SELECT DISTINCT(teacher) from conferences");
+	while($row = mysqli_fetch_array($query))
+	{
+	    $arr[$count]=$row[0];
+	    $count=$count+1;
+	}
+	$types=array("Institutional","Regional","National","International");
+	$points=array(0.5,1.5,2,3);
+	$scores=array(0,0,0,0);
+	$docs=array("workshops","conferences","awards");
+
+	for($k=0;$k<sizeof($docs);$k++)
+	{
+		for($i=0;$i<sizeof($arr);$i++)
+		{
+			$total=0;
+			for($j=0;$j<sizeof($types);$j++)
+			{
+				$count=0;
+				$result=mysqli_query($con, "SELECT * from $docs[$k] where level='$types[$j]' and teacher = '$arr[$i]'");
+				while($row=mysqli_fetch_array($result))
+				{
+					$count=$count+1;
+				}
+				$total=$total+($points[$j]*$count);
+			}
+			$scores[$i]=$scores[$i]+$total;
+		}
+	}
+
+	$types=array("Solo","Collaborative","Departmental","Institutional");
+	$points=array(2,3,4,5);
+	for($i=0;$i<sizeof($arr);$i++)
+	{
+		$total=0;
+		for($j=0;$j<sizeof($types);$j++)
+		{
+			$count=0;
+			$result=mysqli_query($con, "SELECT * from consultancy where type='$types[$j]' and teacher = '$arr[$i]'");
+			while($row=mysqli_fetch_array($result))
+			{
+				$count=$count+1;
+			}
+			$total=$total+($points[$j]*$count);
+		}
+		$scores[$i]=$scores[$i]+$total;
+	}
+
+	for($i=0;$i<sizeof($scores)-1;$i++)
+	{
+		if($scores[$i]>$scores[$i+1])
+		{
+			$temp=$scores[$i+1];
+			$scores[$i+1]=$scores[$i];
+			$scores[$i]=$temp;
+
+			$temp=$arr[$i+1];
+			$arr[$i+1]=$arr[$i];
+			$arr[$i]=$temp;
+			$i=-1;
+		}
+	}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -180,6 +248,9 @@
     </div>
   </div>
 
+
+
+
   <div id="portfolio" class="our-portfolio section">
     <div class="container">
       <div class="row">
@@ -190,27 +261,28 @@
         </div>
       </div>
       <div class="row">
+
         <div class="col-lg-3 col-sm-6">
           <a href="#">
             <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
               <div class="hidden-content">
-                <h4>Dr. Arokia Paul Rajan</h4>
-                <p>Cloud Computing Expert</p>
+                <h4><?php echo "Prof. ".end($arr);?></h4>
+                <p><?php echo "Evaluation Score: ".end($scores);?></p>
               </div>
               <div class="showed-content">
                 <img src="assets/images/firstprize.png" alt="">
                 <p>First Position</p>
-
               </div>
             </div>
           </a>
         </div>
+
         <div class="col-lg-3 col-sm-6">
           <a href="#">
             <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.4s">
               <div class="hidden-content">
-                <h4>Dr. Smitha Vinod</h4>
-                <p>Database and SQL Expert</p>
+                <h4><?php echo "Prof. ".prev($arr);?></h4>
+                <p><?php echo "Evaluation Score: ".prev($scores);?></p>
               </div>
               <div class="showed-content">
                 <img src="assets/images/secondprize.png" alt="">
@@ -223,8 +295,8 @@
           <a href="#">
             <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.5s">
               <div class="hidden-content">
-                <h4>Dr. Debabrata Samanta</h4>
-                <p>Patent and Copywrite Expert</p>
+                <h4><?php echo "Prof. ".prev($arr);?></h4>
+                <p><?php echo "Evaluation Score: ".prev($scores);?></p>
               </div>
               <div class="showed-content">
                 <img src="assets/images/thirdprize.png" alt="">
@@ -237,8 +309,8 @@
           <a href="#">
             <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.6s">
               <div class="hidden-content">
-                <h4>Dr. Parth Pathak</h4>
-                <p>PHP and Backend Expert</p>
+                <h4><?php echo "Prof. ".prev($arr);?></h4>
+                <p><?php echo "Evaluation Score: ".prev($scores);?></p>
 
               </div>
               <div class="showed-content">
