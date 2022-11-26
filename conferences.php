@@ -125,7 +125,7 @@
     </li>
     <li>
       <label>
-        <input type="checkbox" class = "selection"  name="selection[]" value="organ_org" />Organising Organisation</label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="organizing_org" />Organising Organisation</label>
     </li>
   </ul>
 </div>
@@ -168,7 +168,7 @@ if(isset($_POST['search']))
           }
           elseif(($valueToSearch1=="")AND($valueToSearch2=="")AND($valueToSearch3==""))
           {
-              $query = "SELECT $val FROM $table WHERE organized= '$valueToSearch'";
+              $query = "SELECT $val FROM $table WHERE organizing_org= '$valueToSearch'";
               $search_result = filterTable($query);
           }
           elseif(($valueToSearch=="")AND($valueToSearch2=="")AND($valueToSearch3==""))
@@ -183,12 +183,12 @@ if(isset($_POST['search']))
           }
           elseif(($valueToSearch3=="")AND($valueToSearch2==""))
           {
-              $query = "SELECT $val FROM $table WHERE organized= '$valueToSearch' AND start ='$valueToSearch1'";
+              $query = "SELECT $val FROM $table WHERE organizing_org= '$valueToSearch' AND start ='$valueToSearch1'";
               $search_result = filterTable($query);
           }
           elseif($valueToSearch2=="")
           {
-              $query = "SELECT $val FROM $table WHERE organized= '$valueToSearch' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
+              $query = "SELECT $val FROM $table WHERE organizing= '$valueToSearch' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
               $search_result = filterTable($query);
           }
           elseif(($valueToSearch=="")AND($valueToSearch3==""))
@@ -203,12 +203,12 @@ if(isset($_POST['search']))
           }
           elseif($valueToSearch1=="")
           {
-              $query = "SELECT $val FROM $table WHERE organized= '$valueToSearch' AND type= '$valueToSearch2'";
+              $query = "SELECT $val FROM $table WHERE organizing_org= '$valueToSearch' AND type= '$valueToSearch2'";
               $search_result = filterTable($query);
           }
           else
           {
-              $query = "SELECT $val FROM $table WHERE organized= '$valueToSearch' AND type= '$valueToSearch2' AND start >='$valueToSearch1' AND start <='$valueToSearch3'";
+              $query = "SELECT $val FROM $table WHERE organizing_org= '$valueToSearch' AND type= '$valueToSearch2' AND start >='$valueToSearch1' AND start <='$valueToSearch3'";
               $search_result = filterTable($query);
           }
       }
@@ -227,7 +227,7 @@ if(isset($_POST['search']))
           }
           elseif(($valueToSearch1=="")AND($valueToSearch2=="")AND($valueToSearch3==""))
           {
-              $query = "SELECT * FROM $table WHERE organized,= '$valueToSearch'";
+              $query = "SELECT * FROM $table WHERE organizing_org= '$valueToSearch'";
               $search_result = filterTable($query);
           }
           elseif(($valueToSearch=="")AND($valueToSearch2=="")AND($valueToSearch3==""))
@@ -242,12 +242,12 @@ if(isset($_POST['search']))
           }
           elseif(($valueToSearch3=="")AND($valueToSearch2==""))
           {
-              $query = "SELECT * FROM $table WHERE organized= '$valueToSearch' AND start ='$valueToSearch1'";
+              $query = "SELECT * FROM $table WHERE organizing_org= '$valueToSearch' AND start ='$valueToSearch1'";
               $search_result = filterTable($query);
           }
           elseif($valueToSearch2=="")
           {
-              $query = "SELECT * FROM $table WHERE organized= '$valueToSearch' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
+              $query = "SELECT * FROM $table WHERE organizing_org= '$valueToSearch' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
               $search_result = filterTable($query);
           }
           elseif(($valueToSearch=="")AND($valueToSearch3==""))
@@ -262,12 +262,12 @@ if(isset($_POST['search']))
           }
           elseif($valueToSearch1=="")
           {
-              $query = "SELECT * FROM $table WHERE organized= '$valueToSearch' AND type= '$valueToSearch2'";
+              $query = "SELECT * FROM $table WHERE organizing_org= '$valueToSearch' AND type= '$valueToSearch2'";
               $search_result = filterTable($query);
           }
           else
           {
-              $query = "SELECT * FROM $table WHERE organized= '$valueToSearch' AND type= '$valueToSearch2' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
+              $query = "SELECT * FROM $table WHERE organizing_org= '$valueToSearch' AND type= '$valueToSearch2' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
               $search_result = filterTable($query);
           }
       }
