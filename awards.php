@@ -46,16 +46,14 @@
             </datalist>
 
     <input type="Date" name="start" placeholder="Start" class="inputfield" style="width:160px; border-radius:10px;">
-    <input type="Date" name="end" placeholder="End" class="inputfield" style="width:160px; border-radius:10px;">
 
-    <input list="valueToSearch2" name="valueToSearch2" placeholder="Type" class="inputfield" style="width:80px;">
+    <input list="valueToSearch2" name="valueToSearch2" placeholder="Level" class="inputfield" style="width:80px;">
             <datalist id="valueToSearch2">
                 <option value=""></option>
-                <option value="Articles in periodicals">Articles in periodicals</option>
-                <option value="Articles in Journals">Articles in Journals</option>
-                <option value="Conference/Seminar/Symposium">Conference/Seminar/Symposium</option>
-                <option value="Workshop/FDP/Training Programme">Workshop/FDP/Training Programme</option>
-                <option value="Awards/Achievments/others">Awards/Achievments/others</option>
+                <option value="National">National</option>
+                <option value="International">International</option>
+                <option value="Institutional">Institutional</option>
+                <option value="Regional">Regional</option>
             </datalist>
 
     <!-- <label for="tables">&emsp;&emsp;Choose the Document </label> -->
@@ -89,7 +87,7 @@
   <ul class="checkbox-dropdown-list">
     <li>
       <label>
-        <input type="checkbox" class = "selection"  name="selection[]" value="approver_comment" />Approver Comment</label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="approver_com" />Approver Comment</label>
     </li>
     <li>
       <label>
@@ -97,7 +95,7 @@
     </li>
     <li>
       <label>
-        <input type="checkbox" class = "selection"  name="selection[]" value="desc" />Description</label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="description" />Description</label>
     </li>
     <li>
       <label>
@@ -109,7 +107,7 @@
     </li>
     <li>
       <label>
-        <input type="checkbox" class = "selection"  name="selection[]" value="cat" />Category</label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="category" />Category</label>
     </li>
     <li>
       <label>
@@ -121,7 +119,7 @@
     </li>
     <li>
       <label>
-        <input type="checkbox" class = "selection"  name="selection[]" value="award_org" />Awarding Organisation</label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="awarding_org" />Awarding Organisation</label>
     </li>
   </ul>
 </div>
@@ -141,7 +139,6 @@ if(isset($_POST['search']))
       $valueToSearch = $_POST['valueToSearch'];
       $valueToSearch1 = $_POST['start'];
       $valueToSearch2 = $_POST['valueToSearch2'];
-      $valueToSearch3 = $_POST['end'];
       $table = $_POST['table'];
       if(!empty($_POST['selection']))
       {
@@ -153,118 +150,88 @@ if(isset($_POST['search']))
           }
           $val=substr($val,0,strlen($val)-1);
 
-          if(($valueToSearch=="")AND($valueToSearch1=="")AND($valueToSearch2=="")AND($valueToSearch3==""))
+          if(($valueToSearch=="")AND($valueToSearch1=="")AND($valueToSearch2==""))
           {
               $query = "SELECT $val FROM $table";
               $search_result = filterTable($query);
           }
-          elseif(($valueToSearch=="")AND($valueToSearch1=="")AND($valueToSearch3==""))
+          elseif(($valueToSearch=="")AND($valueToSearch1==""))
           {
-              $query = "SELECT $val FROM $table WHERE type= '$valueToSearch2'";
+              $query = "SELECT $val FROM $table WHERE level= '$valueToSearch2'";
               $search_result = filterTable($query);
           }
-          elseif(($valueToSearch1=="")AND($valueToSearch2=="")AND($valueToSearch3==""))
+          elseif(($valueToSearch1=="")AND($valueToSearch2==""))
           {
-              $query = "SELECT $val FROM $table WHERE organized= '$valueToSearch'";
-              $search_result = filterTable($query);
-          }
-          elseif(($valueToSearch=="")AND($valueToSearch2=="")AND($valueToSearch3==""))
-          {
-              $query = "SELECT $val FROM $table WHERE start ='$valueToSearch1'";
+              $query = "SELECT $val FROM $table WHERE awarding_org= '$valueToSearch'";
               $search_result = filterTable($query);
           }
           elseif(($valueToSearch=="")AND($valueToSearch2==""))
           {
-              $query = "SELECT $val FROM $table WHERE start >='$valueToSearch1' AND end <='$valueToSearch3'";
-              $search_result = filterTable($query);
-          }
-          elseif(($valueToSearch3=="")AND($valueToSearch2==""))
-          {
-              $query = "SELECT $val FROM $table WHERE organized= '$valueToSearch' AND start ='$valueToSearch1'";
+              $query = "SELECT $val FROM $table WHERE date >='$valueToSearch1'";
               $search_result = filterTable($query);
           }
           elseif($valueToSearch2=="")
           {
-              $query = "SELECT $val FROM $table WHERE organized= '$valueToSearch' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
-              $search_result = filterTable($query);
-          }
-          elseif(($valueToSearch=="")AND($valueToSearch3==""))
-          {
-              $query = "SELECT $val FROM $table WHERE type= '$valueToSearch2' AND start ='$valueToSearch1'";
+              $query = "SELECT $val FROM $table WHERE awarding_org= '$valueToSearch' AND date >='$valueToSearch1'";
               $search_result = filterTable($query);
           }
           elseif($valueToSearch=="")
           {
-              $query = "SELECT $val FROM $table WHERE type= '$valueToSearch2' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
+              $query = "SELECT $val FROM $table WHERE level= '$valueToSearch2' AND date >='$valueToSearch1'";
               $search_result = filterTable($query);
           }
           elseif($valueToSearch1=="")
           {
-              $query = "SELECT $val FROM $table WHERE organized= '$valueToSearch' AND type= '$valueToSearch2'";
+              $query = "SELECT $val FROM $table WHERE awarding_org= '$valueToSearch' AND level= '$valueToSearch2'";
               $search_result = filterTable($query);
           }
           else
           {
-              $query = "SELECT $val FROM $table WHERE organized= '$valueToSearch' AND type= '$valueToSearch2' AND start >='$valueToSearch1' AND start <='$valueToSearch3'";
+              $query = "SELECT $val FROM $table WHERE awarding_org= '$valueToSearch' AND level= '$valueToSearch2' AND date >='$valueToSearch1'";
               $search_result = filterTable($query);
           }
       }
 
       else
       {
-          if(($valueToSearch=="")AND($valueToSearch1=="")AND($valueToSearch2=="")AND($valueToSearch3==""))
+          if(($valueToSearch=="")AND($valueToSearch1=="")AND($valueToSearch2==""))
           {
               $query = "SELECT * FROM $table";
               $search_result = filterTable($query);
           }
-          elseif(($valueToSearch=="")AND($valueToSearch1=="")AND($valueToSearch3==""))
+          elseif(($valueToSearch=="")AND($valueToSearch1==""))
           {
-              $query = "SELECT * FROM $table WHERE type= '$valueToSearch2'";
+              $query = "SELECT * FROM $table WHERE level= '$valueToSearch2'";
               $search_result = filterTable($query);
           }
-          elseif(($valueToSearch1=="")AND($valueToSearch2=="")AND($valueToSearch3==""))
+          elseif(($valueToSearch1=="")AND($valueToSearch2==""))
           {
-              $query = "SELECT * FROM $table WHERE organized,= '$valueToSearch'";
-              $search_result = filterTable($query);
-          }
-          elseif(($valueToSearch=="")AND($valueToSearch2=="")AND($valueToSearch3==""))
-          {
-              $query = "SELECT * FROM $table WHERE start ='$valueToSearch1'";
+              $query = "SELECT * FROM $table WHERE awarding_org= '$valueToSearch'";
               $search_result = filterTable($query);
           }
           elseif(($valueToSearch=="")AND($valueToSearch2==""))
           {
-              $query = "SELECT * FROM $table WHERE start >='$valueToSearch1' AND end <='$valueToSearch3'";
-              $search_result = filterTable($query);
-          }
-          elseif(($valueToSearch3=="")AND($valueToSearch2==""))
-          {
-              $query = "SELECT * FROM $table WHERE organized= '$valueToSearch' AND start ='$valueToSearch1'";
+              $query = "SELECT * FROM $table WHERE date >='$valueToSearch1'";
               $search_result = filterTable($query);
           }
           elseif($valueToSearch2=="")
           {
-              $query = "SELECT * FROM $table WHERE organized= '$valueToSearch' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
-              $search_result = filterTable($query);
-          }
-          elseif(($valueToSearch=="")AND($valueToSearch3==""))
-          {
-              $query = "SELECT * FROM $table WHERE type= '$valueToSearch2' AND start ='$valueToSearch1'";
+              $query = "SELECT * FROM $table WHERE awarding_org= '$valueToSearch' AND date >='$valueToSearch1'";
               $search_result = filterTable($query);
           }
           elseif($valueToSearch=="")
           {
-              $query = "SELECT * FROM $table WHERE type= '$valueToSearch2' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
+              $query = "SELECT * FROM $table WHERE level= '$valueToSearch2' AND date >='$valueToSearch1'";
               $search_result = filterTable($query);
           }
           elseif($valueToSearch1=="")
           {
-              $query = "SELECT * FROM $table WHERE organized= '$valueToSearch' AND type= '$valueToSearch2'";
+              $query = "SELECT * FROM $table WHERE awarding_org= '$valueToSearch' AND level= '$valueToSearch2'";
               $search_result = filterTable($query);
           }
           else
           {
-              $query = "SELECT * FROM $table WHERE organized= '$valueToSearch' AND type= '$valueToSearch2' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
+              $query = "SELECT * FROM $table WHERE awarding_org= '$valueToSearch' AND level= '$valueToSearch2' AND date >='$valueToSearch1'";
               $search_result = filterTable($query);
           }
       }
