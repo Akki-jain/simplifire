@@ -34,7 +34,7 @@
 
 
 <form action="consultancy.php" method="post" style="margin-left:75px;"> 
-    <input list="valueToSearch" name="valueToSearch" placeholder="Organised By" class="inputfield" style="border-radius:10px;">
+    <input list="valueToSearch" name="valueToSearch" placeholder="Associated With" class="inputfield" style="border-radius:10px;">
             <datalist id="valueToSearch">
                 <option value=""></option>
                 <option value="Microsoft" >Microsoft</option>
@@ -105,7 +105,7 @@
     </li>
     <li>
       <label>
-        <input type="checkbox" class = "selection"  name="selection[]" value="cons_doc" />Consultancy Document</label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="consultancy_doc" />Consultancy Document</label>
     </li>
     <li>
       <label>
@@ -113,23 +113,23 @@
     </li>
     <li>
       <label>
-        <input type="checkbox" class = "selection"  name="selection[]" value="cons_fee" />Consultancy Fee</label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="consultancy_fee" />Consultancy Fee</label>
     </li>
     <li>
       <label>
-        <input type="checkbox"  class = "selection"  name="selection[]" value="fee_ded" />Fee Deducted</label>
+        <input type="checkbox"  class = "selection"  name="selection[]" value="fee_deducted" />Fee Deducted</label>
     </li>
     <li>
       <label>
-        <input type="checkbox" class = "selection"  name="selection[]" value="expen" />Expenditure</label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="expenditure" />Expenditure</label>
     </li>
     <li>
       <label>
-        <input type="checkbox" class = "selection"  name="selection[]" value="faculty" />Faculty</label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="consultancy_faculty" />Faculty</label>
     </li>
     <li>
       <label>
-        <input type="checkbox" class = "selection"  name="selection[]" value="assoc" />Association</label>
+        <input type="checkbox" class = "selection"  name="selection[]" value="associated_with" />Association</label>
     </li>
     <li>
       <label>
@@ -180,7 +180,7 @@ if(isset($_POST['search']))
           }
           elseif(($valueToSearch1=="")AND($valueToSearch2=="")AND($valueToSearch3==""))
           {
-              $query = "SELECT $val FROM $table WHERE organized= '$valueToSearch'";
+              $query = "SELECT $val FROM $table WHERE associated_with= '$valueToSearch'";
               $search_result = filterTable($query);
           }
           elseif(($valueToSearch=="")AND($valueToSearch2=="")AND($valueToSearch3==""))
@@ -195,12 +195,12 @@ if(isset($_POST['search']))
           }
           elseif(($valueToSearch3=="")AND($valueToSearch2==""))
           {
-              $query = "SELECT $val FROM $table WHERE organized= '$valueToSearch' AND start ='$valueToSearch1'";
+              $query = "SELECT $val FROM $table WHERE associated_with= '$valueToSearch' AND start ='$valueToSearch1'";
               $search_result = filterTable($query);
           }
           elseif($valueToSearch2=="")
           {
-              $query = "SELECT $val FROM $table WHERE organized= '$valueToSearch' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
+              $query = "SELECT $val FROM $table WHERE associated_with= '$valueToSearch' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
               $search_result = filterTable($query);
           }
           elseif(($valueToSearch=="")AND($valueToSearch3==""))
@@ -215,12 +215,12 @@ if(isset($_POST['search']))
           }
           elseif($valueToSearch1=="")
           {
-              $query = "SELECT $val FROM $table WHERE organized= '$valueToSearch' AND type= '$valueToSearch2'";
+              $query = "SELECT $val FROM $table WHERE associated_with= '$valueToSearch' AND type= '$valueToSearch2'";
               $search_result = filterTable($query);
           }
           else
           {
-              $query = "SELECT $val FROM $table WHERE organized= '$valueToSearch' AND type= '$valueToSearch2' AND start >='$valueToSearch1' AND start <='$valueToSearch3'";
+              $query = "SELECT $val FROM $table WHERE associated_with= '$valueToSearch' AND type= '$valueToSearch2' AND start >='$valueToSearch1' AND start <='$valueToSearch3'";
               $search_result = filterTable($query);
           }
       }
@@ -239,7 +239,7 @@ if(isset($_POST['search']))
           }
           elseif(($valueToSearch1=="")AND($valueToSearch2=="")AND($valueToSearch3==""))
           {
-              $query = "SELECT * FROM $table WHERE organized,= '$valueToSearch'";
+              $query = "SELECT * FROM $table WHERE associated_with= '$valueToSearch'";
               $search_result = filterTable($query);
           }
           elseif(($valueToSearch=="")AND($valueToSearch2=="")AND($valueToSearch3==""))
@@ -254,12 +254,12 @@ if(isset($_POST['search']))
           }
           elseif(($valueToSearch3=="")AND($valueToSearch2==""))
           {
-              $query = "SELECT * FROM $table WHERE organized= '$valueToSearch' AND start ='$valueToSearch1'";
+              $query = "SELECT * FROM $table WHERE associated_with= '$valueToSearch' AND start ='$valueToSearch1'";
               $search_result = filterTable($query);
           }
           elseif($valueToSearch2=="")
           {
-              $query = "SELECT * FROM $table WHERE organized= '$valueToSearch' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
+              $query = "SELECT * FROM $table WHERE associated_with= '$valueToSearch' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
               $search_result = filterTable($query);
           }
           elseif(($valueToSearch=="")AND($valueToSearch3==""))
@@ -274,12 +274,12 @@ if(isset($_POST['search']))
           }
           elseif($valueToSearch1=="")
           {
-              $query = "SELECT * FROM $table WHERE organized= '$valueToSearch' AND type= '$valueToSearch2'";
+              $query = "SELECT * FROM $table WHERE associated_with= '$valueToSearch' AND type= '$valueToSearch2'";
               $search_result = filterTable($query);
           }
           else
           {
-              $query = "SELECT * FROM $table WHERE organized= '$valueToSearch' AND type= '$valueToSearch2' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
+              $query = "SELECT * FROM $table WHERE associated_with= '$valueToSearch' AND type= '$valueToSearch2' AND start >='$valueToSearch1' AND end <='$valueToSearch3'";
               $search_result = filterTable($query);
           }
       }
