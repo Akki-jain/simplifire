@@ -156,7 +156,7 @@
     }
     if($check_customer==1)
     {
-      $_SESSION['customer_email']=$customer_email;
+      $_SESSION['username']=$customer_email;
       echo "<script>alert('You are Logged In')</script>";
       echo "<script>window.open('index.php','_self')</script>";
     }

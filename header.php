@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION['username']))
+{
+  $user=$_SESSION['username'];
+}
+?>
+  
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
@@ -28,10 +36,32 @@
               <li class="scroll-to-section"><a href="conferences.php">Conferences</a></li>
               <li class="scroll-to-section"><a href="awards.php">Awards</a></li>
               <li class="scroll-to-section"><a href="workshops.php">Workshops</a></li>
-              <li class="scroll-to-section"><a href="consultancy.php">Consultancy</a></li> 
-              <li class="scroll-to-section"><a href="index.php#contact">Contact Us</a></li>
+              <li class="scroll-to-section"><a href="consultancy.php" >Consultancy</a></li> 
+              <!-- <li class="scroll-to-section"><a href="index.php#contact">Contact Us</a></li> -->
+              <li class="scroll-to-section">
+              <?php if(isset($_SESSION['username']))
+                {
+                echo " ";
+                }
+                else
+                {
+                echo "<a href='sign.php' style='margin-right:-30px;'>Login</a>";
+                } ?></li>
+                <li>
+                <?php if(isset($_SESSION['username']))
+                {
+                echo "<a href='dashboard.php' style='margin-right:-10px; margin-left:-80px;'>";
+                echo "&emsp;&emsp; Hi, ". strtoupper($user);
+                }
+                else
+                {
+                echo "";
+                } ?></a></a></li>
               <li class="scroll-to-section"><div class="main-red-button"><a href="index.php#portfolio">Top Performer</a></div></li> 
               
+              
+
+
             </ul>
             <a class='menu-trigger'>
                 <span>Menu</span>
